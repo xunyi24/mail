@@ -1,0 +1,23 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: product_route
+          uri: lb://mall-product
+          predicates:
+            - Path=/api/product/**
+          filters:
+            - RewritePath=/api/product/(?<segment>.*),/product/$\{segment}
+        #前端项目统一加上/api路径 统一转发到对应的renren-fast服务
+        - id: admin_route
+          uri: lb://renren-fast
+          predicates:
+            - Path=/api/**
+          filters:
+            - RewritePath=/api/(?<segment>.*),/renren-fast/$\{segment}
+
+
+#使用filters进行路径重写 原因：、
+#例如前端访问的路径是 http://localhost:88/api/product/category/list/tree 如果不进行路径重写，
+#经过网关后就会变成 http://localhost:10000/api/product/category/list/tree，但是这个路径不生效
+#因为product提供的服务路径没有/api前缀，所以需要路径重写去掉/api前缀

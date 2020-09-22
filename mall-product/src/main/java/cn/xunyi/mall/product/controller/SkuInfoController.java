@@ -20,9 +20,9 @@ import cn.xunyi.common.utils.R;
 /**
  * sku信息
  *
- * @author liupf
- * @email liupf24@163.com
- * @date 2020-08-01 17:29:31
+ * @author leifengyang
+ * @email leifengyang@gmail.com
+ * @date 2019-10-01 22:50:32
  */
 @RestController
 @RequestMapping("product/skuinfo")
@@ -36,7 +36,7 @@ public class SkuInfoController {
     @RequestMapping("/list")
     //@RequiresPermissions("product:skuinfo:list")
     public R list(@RequestParam Map<String, Object> params){
-        PageUtils page = skuInfoService.queryPage(params);
+        PageUtils page = skuInfoService.queryPageByCondition(params);
 
         return R.ok().put("page", page);
     }

@@ -1,8 +1,8 @@
 package cn.xunyi.mall.product.service;
 
+import cn.xunyi.mall.product.entity.CategoryEntity;
 import com.baomidou.mybatisplus.extension.service.IService;
 import cn.xunyi.common.utils.PageUtils;
-import cn.xunyi.mall.product.entity.CategoryEntity;
 
 import java.util.List;
 import java.util.Map;
@@ -10,9 +10,9 @@ import java.util.Map;
 /**
  * 商品三级分类
  *
- * @author liupf
- * @email liupf24@163.com
- * @date 2020-08-01 15:28:55
+ * @author leifengyang
+ * @email leifengyang@gmail.com
+ * @date 2019-10-01 21:08:48
  */
 public interface CategoryService extends IService<CategoryEntity> {
 
@@ -21,5 +21,17 @@ public interface CategoryService extends IService<CategoryEntity> {
     List<CategoryEntity> listWithTree();
 
     void removeMenuByIds(List<Long> asList);
+
+
+    /**
+     * 找到catelogId的完整路径；
+     * [父/子/孙]
+     * @param catelogId
+     * @return
+     */
+    Long[] findCatelogPath(Long catelogId);
+
+    void updateCascade(CategoryEntity category);
+
 }
 

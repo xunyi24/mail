@@ -8,6 +8,12 @@ spring:
             - Path=/api/product/**
           filters:
             - RewritePath=/api/product/(?<segment>.*),/product/$\{segment}
+        - id: third_service_route
+          uri: lb://mall-third-service
+          predicates:
+            - Path=/api/thirdservice/**
+          filters:
+            - RewritePath=/api/thirdservice/(?<segment>.*),/$\{segment}
         #前端项目统一加上/api路径 统一转发到对应的renren-fast服务
         - id: admin_route
           uri: lb://renren-fast

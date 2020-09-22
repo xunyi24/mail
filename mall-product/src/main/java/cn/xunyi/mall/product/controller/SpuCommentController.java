@@ -20,9 +20,9 @@ import cn.xunyi.common.utils.R;
 /**
  * 商品评价
  *
- * @author liupf
- * @email liupf24@163.com
- * @date 2020-08-01 17:29:31
+ * @author leifengyang
+ * @email leifengyang@gmail.com
+ * @date 2019-10-01 22:50:32
  */
 @RestController
 @RequestMapping("product/spucomment")

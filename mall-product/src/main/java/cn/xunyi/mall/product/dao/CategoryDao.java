@@ -6,12 +6,12 @@ import org.apache.ibatis.annotations.Mapper;
 
 /**
  * 商品三级分类
- * 
+ *
  * @author liupf
  * @email liupf24@163.com
  * @date 2020-08-01 15:28:55
  */
 @Mapper
 public interface CategoryDao extends BaseMapper<CategoryEntity> {
-	
+
 }
